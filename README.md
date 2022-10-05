@@ -497,7 +497,7 @@ I normally install all languages and compilers through brew. Here are some examp
 All of these are awesome [open container initiative](https://opencontainers.org/) (OCI) projects.
 
 I use docker for many personal projects so the change to the user subscription model
-that takes effect on January 31, 2022 does not affect me. The UI interface is pretty nifty.
+that took effect on January 31, 2022 does not affect me. The UI interface is pretty nifty.
 
 And even though [podman](https://podman.io/) bind mounts do not work on MacOS, I have used `podman` and shared
 files by creating a volume that allows me to copy data in and out of containers. Once the volume mount
