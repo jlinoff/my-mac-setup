@@ -588,7 +588,7 @@ I use `draw.io.app` from https://drawio-app.com/ or all of my local drawing and 
 
 You can download it here:  https://github.com/jgraph/drawio-desktop/releases/
 or you can use it in your browser: https://app.diagrams.net/
-or you can use brew: `brew install --cask drawio!`.
+or you can use brew: `brew install --cask drawio`.
 
 I use a locally installed version.
 
