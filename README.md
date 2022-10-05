@@ -672,18 +672,18 @@ In the limit:
 As Knowledge goes to zero, money goes to infinity, regardless of the amount of work.
 ```
 
-![latexit-money](https://user-images.githubusercontent.com/2991242/147503717-644a6287-dbd9-422a-96b8-1409cf88b4e7.png)
+![latexit-money](images/latexit-money.png)
 
 ## Geogebra
 Here is geogebra in action.
 
 ### Cone
  ` z^2 = x^2 + y^2`
-![geo-cone](https://user-images.githubusercontent.com/2991242/147503967-a9e5b208-a3eb-46b9-a0e4-b2be0ef2d02b.png)
+![geo-cone](images/geo-cone.png)
 
 ### Saddle Plot
  `z=Surface(x,y,0.3 x^(2)-0.2 y^(2),x,-9,9,y,-10,10)`
-![geo-saddle](https://user-images.githubusercontent.com/2991242/147503986-8b610f4a-b2a2-43c8-8a5e-a8599e655b40.png)
+![geo-saddle](images/geo-saddle.png)
 
 ### Simple linear regression analysis
 ![geo-lr](https://user-images.githubusercontent.com/2991242/147504299-f0b77c18-e5ec-456d-8c5f-88b9b60f3bbe.png)
@@ -692,7 +692,7 @@ Here is geogebra in action.
  IMHO, the best ever command line tool for plotting.
 
  ### Linear regression Plot
-![gnup-lr](https://user-images.githubusercontent.com/2991242/147503995-fd451867-2d11-4997-bb6a-545d9b8942bc.png)
+![gnup-lr](images/gnup-lr.png)
 
 ### gnuplot commands
 ```
@@ -814,7 +814,7 @@ It is so specific that it is probably not of general interest.
 ```
 
 ## Before
-![math-example-before](https://user-images.githubusercontent.com/2991242/147605487-260834b4-e4cd-42ef-80ee-ea126d24cc84.png)
+![emacs-math-example-before](images/emacs-math-example-before.png)
 
 ## After
 ![math-example-after](https://user-images.githubusercontent.com/2991242/147605494-4082c811-a3c2-48a0-983a-32f0381995dc.png)
