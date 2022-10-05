@@ -464,9 +464,9 @@ $ echo $path | tr ' ' '\n' | cat -n
 
 # Editors and IDEs
 
-Everyone just uses emacs right? (JOKE!!!)...
+_Everyone_ uses emacs, right? (JOKE!!!)...
 
-> I certainly do (for org-mode alone) but there are many other awesome options available.
+> I certainly do (for org-mode alone) but there are many other awesome options available and i am not opiniated about editors or IDE's.
 
 Here are links for a number of popular editors and IDEs that i am aware of. If you have a favorite that is NOT listed please let me know and i will add it.
 
