@@ -628,7 +628,7 @@ One of my all time favorites:
 \zeta ( s ) = \sum_{n=1}^{\infty} \frac{1}{n^s}
 ```
 
-![latexit-rzeta](https://user-images.githubusercontent.com/2991242/147504005-802e4dc3-fe90-4bbc-8ec7-1a4a5d2b9cfc.png)
+![latexit-rzeta](images/latexit-rzeta.png)
 
 ### EFE
 Blast from the past.
@@ -636,7 +636,7 @@ Blast from the past.
 R_{\mu \nu} - {1 \over 2}R \, g_{\mu \nu} + \Lambda g_{\mu \nu}={8 \pi G \over c^4} T_{\mu \nu}
 ```
 
-![latexit-efe](https://user-images.githubusercontent.com/2991242/147503999-382d28c8-f980-4de3-9d25-8078eed54901.png)
+![latexit-efe](images/latexit-efe.png)
 
 ### A more complex example
 
