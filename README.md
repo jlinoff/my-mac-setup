@@ -686,7 +686,7 @@ Here is geogebra in action.
 ![geo-saddle](images/geo-saddle.png)
 
 ### Simple linear regression analysis
-![geo-lr](https://user-images.githubusercontent.com/2991242/147504299-f0b77c18-e5ec-456d-8c5f-88b9b60f3bbe.png)
+![geo-lr](images/geo-lr.png)
 
  ## gnuplot
  IMHO, the best ever command line tool for plotting.
@@ -817,7 +817,7 @@ It is so specific that it is probably not of general interest.
 ![emacs-math-example-before](images/emacs-math-example-before.png)
 
 ## After
-![math-example-after](https://user-images.githubusercontent.com/2991242/147605494-4082c811-a3c2-48a0-983a-32f0381995dc.png)
+![emacs-math-example-after](images/emacs-math-example-after.png)
 
 
 # Appendix C - Multiline jq Queries
