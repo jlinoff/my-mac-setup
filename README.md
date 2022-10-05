@@ -608,6 +608,9 @@ I also added two Google fonts: "Nanum Brush Script" and "Nanum Pen Script", perm
 ```
 4. These fonts will now be available when drawio starts.
 
+This is what the draw.ip.app configuration looks like.
+![drawio-cfg](images/drawio-cfg.png)
+
 See [this](https://www.diagrams.net/doc/faq/custom-fonts-confluence-cloud) link for more information.
 
 # Mathy Stuff
