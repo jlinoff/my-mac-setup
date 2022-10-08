@@ -186,7 +186,8 @@ brew bundle dump --file - | egrep '^brew|^cask' | sed -E -e 's/^(brew|cask)//' |
   xargs -L1 brew info -q | grep stable | sort -fu | column -dt | cat -n
 ```
 
-Just list the packages and their versions. This changed for the most recent version of brew (as of 2022-10-05).
+Just list the packages and their versions. This changed for the most recent version of brew as of 2022-10-05
+because the output from `brew bundle dump` changed.
 ```bash
 brew bundle dump --file - | egrep '^brew|^cask' | sed -E -e 's/^(brew|cask)//' | tr -d '[ “]' | \
    xargs -L1 brew info -q | grep ': stable ' | awk '{print $2, $4}' | tr -d ':' | sort -fu | column -dt | cat -n
