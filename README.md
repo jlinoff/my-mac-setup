@@ -514,13 +514,10 @@ Neither podman or colima are a replacement for docker on mac yet because of thei
 It looks like podman now supports volume mounts on MacOS!
 Here is what you need to do to allow podman containers to access your home directory tree.
 ```bash
-podman machine init \
-  --cpus=4 \
-  --disk-size=60 \
-  --memory=4096 \
-  -v $HOME:$HOME \
-  --volume-driver=virtfs \
-  --now
+podman machine rm
+podman machine init --cpus=2 --disk-size=60 --memory=4096 -v $HOME:$HOME --volume-driver=virtfs --now
+podman machine list
+podman run -it --rm -h test1 --name test1 -v $HOME:$HOME ubuntu bash -c "ls -l $HOME/"
 ```
 
 > Many thanks to Brendon Walsh for reporting this.
