@@ -467,7 +467,7 @@ $ echo $path | tr ' ' '\n' | cat -n
 # Browsers
 You might want to use a browser other than Safari for testing and other things.
 
-Here some browsers that i have found useful.
+Here are some browsers that i have found useful.
 
 | browser | installation |
 | ------- | ------------ |
