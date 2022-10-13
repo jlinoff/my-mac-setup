@@ -11,6 +11,7 @@
     * [Basic Packages](#basic-packages)
   * [Basic zshrc](#basic-zshrc)
   * [Editors and IDEs](#editors-and-ides)
+  * [Browsers](#browsers)
   * [Languages and Compilers](#languages-and-compilers)
   * [Containers: Docker, Podman, Colima](#containers-docker-podman-colima)
   * [Python](#python)
@@ -463,6 +464,18 @@ $ echo $path | tr ' ' '\n' | cat -n
 
 ```
 
+# Browsers
+You might want to use a browser other than Safari for testing and other things.
+
+Here some browsers that i have found useful.
+
+| browser | installation |
+| ------- | ------------ |
+| firefox | `brew install --cask firefox` |
+| google-chrome | `brew install --cask google-chrome` |
+| opera | `brew install --cask opera` |
+| tor | `brew install --cask tor-browser` |
+
 # Editors and IDEs
 
 _Everyone_ uses emacs, right? (JOKE!!!)...
@@ -471,19 +484,19 @@ _Everyone_ uses emacs, right? (JOKE!!!)...
 
 Here are links for a number of popular editors and IDEs that i am aware of. If you have a favorite that is NOT listed please let me know and i will add it.
 
-| editor | link |
-|--------|------|
-| atom    | https://atom.io/, `brew install --cask atom`|
-| Eclipse | https://www.eclipse.org/ide/ |
-| emacs   | https://emacsformacosx.com/, `brew install --cask emacs` |
-| Intellij IDEA | https://www.jetbrains.com/idea/, `brew install --cask intellij-idea-ce` |
-| Jupyter | https://jupyter.org/ , `brew install jupyterlab` |
-| Komodo  | https://www.activestate.com/products/komodo-ide/, `brew install --cask komodo-ide` |
-| nano | `brew install nano` |
-| PyCharm | https://www.jetbrains.com/pycharm/, `brew install --cask pycharm-ce` |
-| sublime | https://www.sublimetext.com/, `brew install --cask sublime-text` |
-| vim | `brew install vim` |
-| visual studio | https://code.visualstudio.com/, `brew install --cask visual-studio-code` |
+| editor | link | installation |
+|--------|------| ------------ |
+| atom    | https://atom.io/ | `brew install --cask atom` |
+| Eclipse | https://www.eclipse.org/ide/ | brew install --cask eclipse-ide`  |
+| emacs   | https://emacsformacosx.com/ |  `brew install --cask emacs` |
+| Intellij IDEA | https://www.jetbrains.com/idea/ | `brew install --cask intellij-idea-ce` |
+| Jupyter | https://jupyter.org/ | `brew install jupyterlab` |
+| Komodo  | https://www.activestate.com/products/komodo-ide/ | `brew install --cask komodo-ide` |
+| nano | https://www.nano-editor.org/ | `brew install nano` |
+| PyCharm | https://www.jetbrains.com/pycharm/ | `brew install --cask pycharm-ce` |
+| sublime | https://www.sublimetext.com/ | `brew install --cask sublime-text` |
+| vim | https://www.vim.org/ | `brew install vim` |
+| visual studio | https://code.visualstudio.com/ | `brew install --cask visual-studio-code` |
 
 > or you can simply use the native TextEdit editor.
 
