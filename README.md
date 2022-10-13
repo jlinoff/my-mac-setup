@@ -425,7 +425,7 @@ rm -f $HOME/bin/sort
 rm -f $HOME/bin/tar
 rm -f $HOME/bin/xargs
 ln -s /usr/local/bin/gawk $HOME/bin/awk
-ln -s /usr/local/bin/gfind $HOME/bin/date
+ln -s /usr/local/bin/gdate $HOME/bin/date
 ln -s /usr/local/bin/gfind $HOME/bin/find
 ln -s /usr/local/bin/ggrep $HOME/bin/grep
 ln -s /usr/local/bin/gmake $HOME/bin/make
