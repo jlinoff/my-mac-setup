@@ -626,8 +626,18 @@ See [this](https://www.diagrams.net/doc/faq/custom-fonts-confluence-cloud) link 
 
 # Mathy Stuff
 
-I use LaTeXiT (`brew install --cask latexit`) for creating equations and gnuplot (`brew install gnuplot`) for basic plotting. I also use geogebra (`brew install geogebra`) for simple modeling (only simple because i don't know it that well) as well as grafana with postrgresql for browser based graphing (`brew install grafana`). Note, however, that i tend to use both grafana and postgres in containers as described
+I use LaTeXiT for creating equations and gnuplot for basic plotting. I also use geogebra for simple modeling (only simple because i don't know it that well) as well as grafana with postrgresql for browser based plotting. Note, however, that i tend to use both grafana and postgres in containers as described
 [here](https://gist.github.com/jlinoff/6e2127ee8b9522da9bc20b20be980818).
+
+Here are the commands to install them.
+
+| package  | install |
+|----------|---------|
+| geogebra | `brew install --cask geogebra` |
+| grafana  | `brew install grafana` |
+| gnuplot  | `brew install gnuplot` |
+| latexit  | `brew install --cask latexit` |
+| postgresql | |`brew install postgresql@14` |
 
 These are just my basic _go to_ tools for playing around. If you are doing serious work, you will have your own more specialized tools.
 
