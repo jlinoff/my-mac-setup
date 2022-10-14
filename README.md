@@ -141,7 +141,7 @@ PKGS=(
     pipenv
     podman
     poppler
-    postgresql
+    ql
     procs
     python@3.8
     pythone@3.10
@@ -637,7 +637,7 @@ Here are the commands to install them.
 | grafana  | `brew install grafana` |
 | gnuplot  | `brew install gnuplot` |
 | latexit  | `brew install --cask latexit` |
-| postgresql | |`brew install postgresql@14` |
+| postgresql | `brew install postgresql@14` |
 
 These are just my basic _go to_ tools for playing around. If you are doing serious work, you will have your own more specialized tools.
 
