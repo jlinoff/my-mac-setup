@@ -182,6 +182,8 @@ brew bundle dump --file - | egrep '^brew|^cask' | sed -E -e 's/^(brew|cask)//' |
 ```
 
 Here is yet another command, that lists all formula and casks along with their versions.
+Getting this to work was a bit tricky because the `column` tool from the `util-linux` package
+was not instal in `/usr/local/bin`. I fixed that by running `cp /usr/local/Cellar/util-linux/*/bin/column ~/bin/`.
 ```bash
 brew bundle dump --file - | egrep '^brew|^cask' | sed -E -e 's/^(brew|cask)//' | tr -d '[ "'| \
   xargs -L1 brew info -q | grep stable | sort -fu | column -dt | cat -n
