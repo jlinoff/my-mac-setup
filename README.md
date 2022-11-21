@@ -194,7 +194,10 @@ Just list the packages and their versions. This changed for the most recent vers
 because the output from `brew bundle dump` changed.
 ```bash
 brew bundle dump --file - | egrep '^brew|^cask' | sed -E -e 's/^(brew|cask)//' | tr -d '[ “]' | \
-   xargs -L1 brew info -q | grep ': stable ' | awk '{print $2, $4}' | tr -d ':' | sort -fu | column -dt | cat -n
+   xargs -L1 brew info -q | \
+   egrep ': stable |(auto_updates)' | \
+   awk '{if ($4 == "(auto_updates)") {print $2, $3} else {print $2, $4}}' | \
+   tr -d ':' | sort -fu | column -dt | cat -n
 ```
 
 This is what the output looks like for the first comand:
