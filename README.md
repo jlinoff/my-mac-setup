@@ -613,7 +613,7 @@ Here are links for a number of popular editors and IDEs that i am aware of. If y
 | editor | link | installation |
 |--------|------| ------------ |
 | atom    | https://atom.io/ | `brew install --cask atom` |
-| Eclipse | https://www.eclipse.org/ide/ | brew install --cask eclipse-ide`  |
+| Eclipse | https://www.eclipse.org/ide/ | `brew install --cask eclipse-ide`  |
 | emacs   | https://emacsformacosx.com/ |  `brew install --cask emacs` |
 | Intellij IDEA | https://www.jetbrains.com/idea/ | `brew install --cask intellij-idea-ce` |
 | Jupyter | https://jupyter.org/ | `brew install jupyterlab` |
