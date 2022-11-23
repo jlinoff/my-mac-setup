@@ -92,9 +92,9 @@ packages that contain a specific file as mention in
 stack exchange issue.
 
 ## Basic Packages
-Here is my list of installed tools as of today. You can use this list
-to install ports on your machine by copying the list below and running
-the port install command, something like this:
+Here is my list of installed packages. You can use this list
+to install packages on your machine by copying the list below and running
+the brew install command, something like this:
 
 ### brew-init.sh
 This script will install them for you after you have installed `brew`.
