@@ -171,16 +171,20 @@ done
 </details>
 
 ### List All Installed Packages
-There are four examples in this section.
+There are three examples in this section.
 
-I tend to use the example 4 the most.
+I tend to use the example 3 the most.
 
 #### Example 1. List the packages as brew installation commands
 
 Run the following command to get a list all of the installed packages as brew installation commands.
 
+#### Example 1. Simply list the package names
+
+This is the simplest example. It just shows the intalled packages and their type: formula (brew) or cask.
+
 ```bash
-brew bundle dump --file - | grep '^brew' | sed -e 's/brew/brew install/' | sort -fu
+brew bundle dump --file - | egrep '^brew|^cask' | awk '{print $2,$1}' | sort -fu | column -dt | cat -n
 ```
 
 This is what the output looks like:
@@ -188,158 +192,80 @@ This is what the output looks like:
   <summary>Click to expand!</summary>
 
 ```bash
-brew install "aspell"
-brew install "bash"
-brew install "bat"
-brew install "cmake"
-brew install "colordiff"
-brew install "coreutils"
-brew install "csvtk"
-brew install "diffutils"
-brew install "dust"
-brew install "emacs", link: false
-brew install "exa"
-brew install "fd"
-brew install "file-formula"
-brew install "findutils"
-brew install "gawk"
-brew install "git"
-brew install "glib"
-brew install "gnu-sed"
-brew install "gnu-tar"
-brew install "gnuplot"
-brew install "gnutls"
-brew install "go"
-brew install "grep"
-brew install "gtop"
-brew install "guile"
-brew install "harfbuzz"
-brew install "hexyl"
-brew install "htop"
-brew install "imagemagick"
-brew install "inetutils"
-brew install "jq"
-brew install "less"
-brew install "make"
-brew install "openssh"
-brew install "pandoc"
-brew install "pango"
-brew install "pipenv"
-brew install "podman"
-brew install "poppler"
-brew install "postgresql@14"
-brew install "procs"
-brew install "python@3.10"
-brew install "python@3.8"
-brew install "qemu"
-brew install "qt@5"
-brew install "ripgrep"
-brew install "rsync"
-brew install "ruby"
-brew install "sd"
-brew install "shellcheck"
-brew install "socat"
-brew install "sqlite"
-brew install "terraform"
-brew install "tmux"
-brew install "tokei"
-brew install "tree"
-brew install "ttyrec"
-brew install "util-linux"
-brew install "vim"
-brew install "wget"
-brew install "zenith"
-brew install "zip"
+     1	"aspell"         brew
+     2	"bash"           brew
+     3	"bat"            brew
+     4	"cmake"          brew
+     5	"colordiff"      brew
+     6	"coreutils"      brew
+     7	"csvtk"          brew
+     8	"diffutils"      brew
+     9	"docker"         cask
+    10	"drawio"         cask
+    11	"dust"           brew
+    12	"emacs"          cask
+    13	"emacs",         brew
+    14	"exa"            brew
+    15	"fd"             brew
+    16	"file-formula"   brew
+    17	"findutils"      brew
+    18	"firefox"        cask
+    19	"gawk"           brew
+    20	"geogebra"       cask
+    21	"git"            brew
+    22	"glib"           brew
+    23	"gnu-sed"        brew
+    24	"gnu-tar"        brew
+    25	"gnuplot"        brew
+    26	"gnutls"         brew
+    27	"go"             brew
+    28	"google-chrome"  cask
+    29	"grep"           brew
+    30	"gtop"           brew
+    31	"guile"          brew
+    32	"harfbuzz"       brew
+    33	"hexyl"          brew
+    34	"htop"           brew
+    35	"imagemagick"    brew
+    36	"inetutils"      brew
+    37	"jq"             brew
+    38	"less"           brew
+    39	"make"           brew
+    40	"musescore"      cask
+    41	"openssh"        brew
+    42	"pandoc"         brew
+    43	"pango"          brew
+    44	"pipenv"         brew
+    45	"podman"         brew
+    46	"poppler"        brew
+    47	"postgresql@14"  brew
+    48	"procs"          brew
+    49	"python@3.10"    brew
+    50	"python@3.8"     brew
+    51	"qemu"           brew
+    52	"qt@5"           brew
+    53	"ripgrep"        brew
+    54	"rsync"          brew
+    55	"ruby"           brew
+    56	"sd"             brew
+    57	"shellcheck"     brew
+    58	"socat"          brew
+    59	"sqlite"         brew
+    60	"terraform"      brew
+    61	"tmux"           brew
+    62	"tokei"          brew
+    63	"tree"           brew
+    64	"ttyrec"         brew
+    65	"util-linux"     brew
+    66	"vim"            brew
+    67	"wget"           brew
+    68	"zenith"         brew
+    69	"zip"            brew
 ```
 
 </details>
 
-#### Example 2. Simply list the package names
-
-```bash
-brew bundle dump --file - | egrep '^brew|^cask' | sed -E -e 's/^(brew|cask)//' | tr -d '[ "]' | \
-  sort -fu | cat -n
-```
-
-This is what the output looks like:
-<details>
-  <summary>Click to expand!</summary>
-
-```bash
-     1	aspell
-     2	bash
-     3	bat
-     4	cmake
-     5	colordiff
-     6	coreutils
-     7	csvtk
-     8	diffutils
-     9	docker
-    10	drawio
-    11	dust
-    12	emacs
-    13	emacs,link:false
-    14	exa
-    15	fd
-    16	file-formula
-    17	findutils
-    18	firefox
-    19	gawk
-    20	geogebra
-    21	git
-    22	glib
-    23	gnu-sed
-    24	gnu-tar
-    25	gnuplot
-    26	gnutls
-    27	go
-    28	google-chrome
-    29	grep
-    30	gtop
-    31	guile
-    32	harfbuzz
-    33	hexyl
-    34	htop
-    35	imagemagick
-    36	inetutils
-    37	jq
-    38	less
-    39	make
-    40	musescore
-    41	openssh
-    42	pandoc
-    43	pango
-    44	pipenv
-    45	podman
-    46	poppler
-    47	postgresql@14
-    48	procs
-    49	python@3.10
-    50	python@3.8
-    51	qemu
-    52	qt@5
-    53	ripgrep
-    54	rsync
-    55	ruby
-    56	sd
-    57	shellcheck
-    58	socat
-    59	sqlite
-    60	terraform
-    61	tmux
-    62	tokei
-    63	tree
-    64	ttyrec
-    65	util-linux
-    66	vim
-    67	wget
-    68	zenith
-    69	zip
-```
-
-</details>
-
-#### Example 3. List the packages with more details.
+#### Example 2. List the packages with more details.
 
 This example lists all formula and casks along with their versions
 along with other miscellaneous information.
@@ -425,7 +351,7 @@ This is what the output looks like:
 
 </details>
 
-#### Example 4. List the package names and versions.
+#### Example 3. List the package names and versions.
 
 This example shows how to list the packages and their versions.
 
