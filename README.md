@@ -171,21 +171,26 @@ done
 </details>
 
 ### List All Installed Packages
-There are three examples in this section.
+There are three examples in this section that show the commands i typically use to list the packaged
+that have been installed. I tend to use the example 3 the most.
 
-I tend to use the example 3 the most.
-
-#### Example 1. List the packages as brew installation commands
-
-Run the following command to get a list all of the installed packages as brew installation commands.
-
-#### Example 1. Simply list the package names
+### Example 1. Simply list the package names
 
 This is the simplest example. It just shows the intalled packages and their type: formula (brew) or cask.
 
 ```bash
 column --version  # this will fail if the wrong version is in the path, see the note below for details
 brew bundle dump --file - | egrep '^brew|^cask' | awk '{print $2,$1}' | sort -fu | column -dt | cat -n
+```
+
+> Note that getting this to work was a bit tricky because the `column` tool from the `util-linux` package
+> was not installed in `/usr/local/bin` and the version shipped with MacOS tools was ancient.
+> I fixed that by copying over the correct version and checking it
+> by running `column --version`.
+```bash
+column --version  # fails
+cp /usr/local/Cellar/util-linux/*/bin/column ~/bin/
+column --version  # works
 ```
 
 This is what the output looks like:
@@ -266,13 +271,7 @@ This is what the output looks like:
 
 </details>
 
-> Note that getting this to work was a bit tricky because the `column` tool from the `util-linux` package
-> was not installed in `/usr/local/bin`. I fixed that by running `cp /usr/local/Cellar/util-linux/*/bin/column ~/bin/`.
-```bash
-column --version  # this will fail if the old MacOS version is the one being used.
-```
-
-#### Example 2. List the packages with more details.
+### Example 2. List the packages with more details.
 
 This example lists all formula and casks along with their versions
 along with other miscellaneous information.
@@ -356,7 +355,7 @@ This is what the output looks like:
 
 </details>
 
-#### Example 3. List the package names and versions.
+### Example 3. List the package names and versions.
 
 This example shows how to list the packages and their versions.
 
