@@ -184,6 +184,7 @@ Run the following command to get a list all of the installed packages as brew in
 This is the simplest example. It just shows the intalled packages and their type: formula (brew) or cask.
 
 ```bash
+column --version  # this will fail if the wrong version is in the path, see the note below for details
 brew bundle dump --file - | egrep '^brew|^cask' | awk '{print $2,$1}' | sort -fu | column -dt | cat -n
 ```
 
@@ -265,15 +266,19 @@ This is what the output looks like:
 
 </details>
 
+> Note that getting this to work was a bit tricky because the `column` tool from the `util-linux` package
+> was not installed in `/usr/local/bin`. I fixed that by running `cp /usr/local/Cellar/util-linux/*/bin/column ~/bin/`.
+```bash
+column --version  # this will fail if the old MacOS version is the one being used.
+```
+
 #### Example 2. List the packages with more details.
 
 This example lists all formula and casks along with their versions
 along with other miscellaneous information.
 
-Getting this to work was a bit tricky because the `column` tool from the `util-linux` package
-was not installed in `/usr/local/bin`. I fixed that by running `cp /usr/local/Cellar/util-linux/*/bin/column ~/bin/`.
 ```bash
-column --version  # this will fail if the old MacOS version is the one being used.
+column --version  # this will fail if the wrong version is in the path, see the note in example 1 for details
 brew bundle dump --file - | egrep '^brew|^cask' | sed -E -e 's/^(brew|cask)//' | tr -d '[ "'| \
   xargs -L1 brew info -q | grep stable | sort -fu | column -dt | cat -n
 ```
@@ -359,6 +364,7 @@ This example shows how to list the packages and their versions.
 > because the output from `brew bundle dump` changed.
 
 ```bash
+column --version  # this will fail if the wrong version is in the path, see the note in example 1 for details
 brew bundle dump --file - | egrep '^brew|^cask' | sed -E -e 's/^(brew|cask)//' | tr -d '[ “]' | \
    xargs -L1 brew info -q | \
    egrep ': stable |(auto_updates)' | \
