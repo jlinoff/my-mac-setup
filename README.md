@@ -184,12 +184,13 @@ brew bundle dump --file - | egrep '^brew|^cask' | awk '{print $2,$1}' | sort -fu
 ```
 
 > Note that getting this to work was a bit tricky because the `column` tool from the `util-linux` package
-> was not installed in `/usr/local/bin` and the version shipped with MacOS tools was ancient.
-> I fixed that by copying over the correct version and checking it
-> by running `column --version`.
+> was not installed in `/usr/local/bin` and the version shipped with MacOS tools was ancient and did not have
+> the features needed.
+> I fixed that by linking to the correct version and checking it by running `column --version`.
+> Unfortunately, when the `util-linux` package is updated, the link has to be re-created manually.
 ```bash
 column --version  # fails
-cp /usr/local/Cellar/util-linux/*/bin/column ~/bin/
+ln -s /usr/local/Cellar/util-linux/$(brew list --versions -q util-linux | awk '{print $2}')/bin/column $HOME/bin/column
 column --version  # works
 ```
 
