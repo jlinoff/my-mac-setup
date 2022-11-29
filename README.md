@@ -482,7 +482,10 @@ rm -f $HOME/bin/sed
 rm -f $HOME/bin/sort
 rm -f $HOME/bin/tar
 rm -f $HOME/bin/xargs
+rm -f $HOME/bin/column
+
 ln -s /usr/local/bin/gawk $HOME/bin/awk
+ln -s /usr/local/Cellar/util-linux/$(brew list --versions -q util-linux | awk '{print $2}')/bin/column $HOME/bin/column
 ln -s /usr/local/bin/gdate $HOME/bin/date
 ln -s /usr/local/bin/gfind $HOME/bin/find
 ln -s /usr/local/bin/ggrep $HOME/bin/grep
@@ -500,10 +503,13 @@ ln -s /usr/local/bin/gxargs $HOME/bin/xargs
 These are the commands i use to update the packages periodically.
 
 ```bash
+xcode-select --install
 brew update
 brew upgrade
 brew cleanup
 brew doctor
+rm -f $HOME/bin/column
+ln -s /usr/local/Cellar/util-linux/$(brew list --versions -q util-linux | awk '{print $2}')/bin/column $HOME/bin/column
 ```
 
 # Basic zshrc
