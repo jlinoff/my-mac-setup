@@ -274,13 +274,14 @@ This is what the output looks like:
 
 ### Example 2. List the packages with more details.
 
-This example lists all formula and casks along with their versions
+This example lists all formulae and casks along with their versions
 along with other miscellaneous information.
 
 ```bash
 column --version  # this will fail if the wrong version is in the path, see the note in example 1 for details
-brew bundle dump --file - | egrep '^brew|^cask' | sed -E -e 's/^(brew|cask)//' | tr -d '[ "'| \
-  xargs -L1 brew info -q | grep stable | sort -fu | column -dt | cat -n
+brew bundle dump --file - 2>/dev/null | awk -F'"' '{print $2}' | \
+    xargs -I{} bash -c "grep '{}:' <(brew info -q {})" 2>/dev/null | \
+    sort -fu | column -dt | cat -n
 ```
 
 This is what the output looks like:
@@ -288,87 +289,91 @@ This is what the output looks like:
   <summary>Click to expand!</summary>
 
 ```bash
-     1	==>  aspell:         stable  0.60.8     (bottled)               
-     2	==>  bash:           stable  5.2.9      (bottled),  HEAD        
-     3	==>  bat:            stable  0.22.1     (bottled),  HEAD        
-     4	==>  cmake:          stable  3.25.0     (bottled),  HEAD        
-     5	==>  colordiff:      stable  1.0.20     (bottled)               
-     6	==>  coreutils:      stable  9.1        (bottled),  HEAD        
-     7	==>  csvtk:          stable  0.25.0     (bottled)               
-     8	==>  diffutils:      stable  3.8        (bottled)               
-     9	==>  docker:         stable  20.10.21   (bottled),  HEAD        
-    10	==>  dust:           stable  0.8.3      (bottled),  HEAD        
-    11	==>  emacs:          stable  28.2       (bottled),  HEAD        
-    12	==>  exa:            stable  0.10.1     (bottled),  HEAD        
-    13	==>  fd:             stable  8.5.3      (bottled),  HEAD        
-    14	==>  file-formula:   stable  5.43       (bottled),  HEAD        [keg-only]
-    15	==>  findutils:      stable  4.9.0      (bottled)               
-    16	==>  gawk:           stable  5.2.0      (bottled),  HEAD        
-    17	==>  git:            stable  2.38.1     (bottled),  HEAD        
-    18	==>  glib:           stable  2.74.0     (bottled)               
-    19	==>  gnu-sed:        stable  4.9        (bottled)               
-    20	==>  gnu-tar:        stable  1.34       (bottled),  HEAD        
-    21	==>  gnuplot:        stable  5.4.5      (bottled),  HEAD        
-    22	==>  gnutls:         stable  3.7.8      (bottled)               
-    23	==>  go:             stable  1.19.3     (bottled),  HEAD        
-    24	==>  grep:           stable  3.8        (bottled)               
-    25	==>  gtop:           stable  1.1.3      (bottled)               
-    26	==>  guile:          stable  3.0.8      (bottled),  HEAD        
-    27	==>  harfbuzz:       stable  5.3.1      (bottled),  HEAD        
-    28	==>  hexyl:          stable  0.10.0     (bottled),  HEAD        
-    29	==>  htop:           stable  3.2.1      (bottled),  HEAD        
-    30	==>  imagemagick:    stable  7.1.0-52   (bottled),  HEAD        
-    31	==>  inetutils:      stable  2.4        (bottled)               
-    32	==>  jq:             stable  1.6        (bottled),  HEAD        
-    33	==>  less:           stable  608        (bottled),  HEAD        
-    34	==>  make:           stable  4.4        (bottled)               
-    35	==>  openssh:        stable  9.1p1      (bottled)               
-    36	==>  pandoc:         stable  2.19.2     (bottled),  HEAD        
-    37	==>  pango:          stable  1.50.12    (bottled),  HEAD        
-    38	==>  pipenv:         stable  2022.9.24  (bottled)               
-    39	==>  podman:         stable  4.3.1      (bottled),  HEAD        
-    40	==>  poppler:        stable  22.08.0    (bottled),  HEAD        
-    41	==>  postgresql@14:  stable  14.6       (bottled)               
-    42	==>  procs:          stable  0.13.3     (bottled)               
-    43	==>  python@3.10:    stable  3.10.8     (bottled)               
-    44	==>  python@3.8:     stable  3.8.15     (bottled)               
-    45	==>  qemu:           stable  7.1.0      (bottled),  HEAD        
-    46	==>  qt@5:           stable  5.15.7     (bottled)   [keg-only]  
-    47	==>  ripgrep:        stable  13.0.0     (bottled),  HEAD        
-    48	==>  rsync:          stable  3.2.7      (bottled)               
-    49	==>  ruby:           stable  3.1.2      (bottled),  HEAD        [keg-only]
-    50	==>  sd:             stable  0.7.6      (bottled)               
-    51	==>  shellcheck:     stable  0.8.0      (bottled),  HEAD        
-    52	==>  socat:          stable  1.7.4.4    (bottled)               
-    53	==>  sqlite:         stable  3.39.4     (bottled)   [keg-only]  
-    54	==>  terraform:      stable  1.3.5      (bottled),  HEAD        
-    55	==>  tmux:           stable  3.3a       (bottled),  HEAD        
-    56	==>  tokei:          stable  12.1.2     (bottled)               
-    57	==>  tree:           stable  2.0.4      (bottled)               
-    58	==>  ttyrec:         stable  1.0.8      (bottled)               
-    59	==>  util-linux:     stable  2.38.1     (bottled)   [keg-only]  
-    60	==>  vim:            stable  9.0.0900   (bottled),  HEAD        
-    61	==>  wget:           stable  1.21.3     (bottled),  HEAD        
-    62	==>  zenith:         stable  0.13.1     (bottled),  HEAD        
-    63	==>  zip:            stable  3.0        (bottled)   [keg-only] 
- 
+     1	==>  aspell:         stable           0.60.8          (bottled)               
+     2	==>  bash:           stable           5.2.12          (bottled),  HEAD        
+     3	==>  bat:            stable           0.22.1          (bottled),  HEAD        
+     4	==>  cmake:          stable           3.25.0          (bottled),  HEAD        
+     5	==>  colordiff:      stable           1.0.20          (bottled)               
+     6	==>  coreutils:      stable           9.1             (bottled),  HEAD        
+     7	==>  csvtk:          stable           0.25.0          (bottled)               
+     8	==>  diffutils:      stable           3.8             (bottled)               
+     9	==>  docker:         stable           20.10.21        (bottled),  HEAD        
+    10	==>  drawio:         20.3.0           (auto_updates)                          
+    11	==>  dust:           stable           0.8.3           (bottled),  HEAD        
+    12	==>  emacs:          stable           28.2            (bottled),  HEAD        
+    13	==>  exa:            stable           0.10.1          (bottled),  HEAD        
+    14	==>  fd:             stable           8.5.3           (bottled),  HEAD        
+    15	==>  file-formula:   stable           5.43            (bottled),  HEAD        [keg-only]
+    16	==>  findutils:      stable           4.9.0           (bottled)               
+    17	==>  firefox:        107.0            (auto_updates)                          
+    18	==>  gawk:           stable           5.2.1           (bottled),  HEAD        
+    19	==>  geogebra:       6.0.745.0                                                
+    20	==>  git:            stable           2.38.1          (bottled),  HEAD        
+    21	==>  glib:           stable           2.74.0          (bottled)               
+    22	==>  gnu-sed:        stable           4.9             (bottled)               
+    23	==>  gnu-tar:        stable           1.34            (bottled),  HEAD        
+    24	==>  gnuplot:        stable           5.4.5           (bottled),  HEAD        
+    25	==>  gnutls:         stable           3.7.8           (bottled)               
+    26	==>  go:             stable           1.19.3          (bottled),  HEAD        
+    27	==>  google-chrome:  107.0.5304.121   (auto_updates)                          
+    28	==>  grep:           stable           3.8             (bottled)               
+    29	==>  gtop:           stable           1.1.3           (bottled)               
+    30	==>  guile:          stable           3.0.8           (bottled),  HEAD        
+    31	==>  harfbuzz:       stable           5.3.1           (bottled),  HEAD        
+    32	==>  hexyl:          stable           0.10.0          (bottled),  HEAD        
+    33	==>  htop:           stable           3.2.1           (bottled),  HEAD        
+    34	==>  imagemagick:    stable           7.1.0-52        (bottled),  HEAD        
+    35	==>  inetutils:      stable           2.4             (bottled)               
+    36	==>  jq:             stable           1.6             (bottled),  HEAD        
+    37	==>  less:           stable           608             (bottled),  HEAD        
+    38	==>  make:           stable           4.4             (bottled)               
+    39	==>  musescore:      3.6.2.548020600                                          
+    40	==>  openssh:        stable           9.1p1           (bottled)               
+    41	==>  pandoc:         stable           2.19.2          (bottled),  HEAD        
+    42	==>  pango:          stable           1.50.12         (bottled),  HEAD        
+    43	==>  pipenv:         stable           2022.9.24       (bottled)               
+    44	==>  podman:         stable           4.3.1           (bottled),  HEAD        
+    45	==>  poppler:        stable           22.11.0         (bottled),  HEAD        
+    46	==>  postgresql@14:  stable           14.6            (bottled)               
+    47	==>  procs:          stable           0.13.3          (bottled)               
+    48	==>  python@3.10:    stable           3.10.8          (bottled)               
+    49	==>  python@3.8:     stable           3.8.15          (bottled)               
+    50	==>  qemu:           stable           7.1.0           (bottled),  HEAD        
+    51	==>  qt@5:           stable           5.15.7          (bottled)   [keg-only]  
+    52	==>  ripgrep:        stable           13.0.0          (bottled),  HEAD        
+    53	==>  rsync:          stable           3.2.7           (bottled)               
+    54	==>  ruby:           stable           3.1.2           (bottled),  HEAD        [keg-only]
+    55	==>  sd:             stable           0.7.6           (bottled)               
+    56	==>  shellcheck:     stable           0.8.0           (bottled),  HEAD        
+    57	==>  socat:          stable           1.7.4.4         (bottled)               
+    58	==>  sqlite:         stable           3.40.0          (bottled)   [keg-only]  
+    59	==>  terraform:      stable           1.3.5           (bottled),  HEAD        
+    60	==>  tmux:           stable           3.3a            (bottled),  HEAD        
+    61	==>  tokei:          stable           12.1.2          (bottled)               
+    62	==>  tree:           stable           2.0.4           (bottled)               
+    63	==>  ttyrec:         stable           1.0.8           (bottled)               
+    64	==>  util-linux:     stable           2.38.1          (bottled)   [keg-only]  
+    65	==>  vim:            stable           9.0.0950        (bottled),  HEAD        
+    66	==>  wget:           stable           1.21.3          (bottled),  HEAD        
+    67	==>  zenith:         stable           0.13.1          (bottled),  HEAD        
+    68	==>  zip:            stable           3.0             (bottled)   [keg-only]
 ```
 
 </details>
 
 ### Example 3. List the package names and versions.
 
-This example shows how to list the packages and their versions.
+This example shows how to list the packages (casks and formulae) and their versions.
 
 > Note that this command changed for the most recent version of brew as of 2022-10-05
 > because the output from `brew bundle dump` changed.
 
 ```bash
 column --version  # this will fail if the wrong version is in the path, see the note in example 1 for details
-brew bundle dump --file - | egrep '^brew|^cask' | sed -E -e 's/^(brew|cask)//' | tr -d '[ “]' | \
-   xargs -L1 brew info -q | \
-   egrep ': stable |(auto_updates)' | \
-   awk '{if ($4 == "(auto_updates)") {print $2, $3} else {print $2, $4}}' | \
+brew bundle dump --file - 2>/dev/null | \
+   awk -F'"' '{print $2}' | \
+   xargs -I{} bash -c "grep '{}:' <(brew info -q {})" 2>/dev/null | \
+   awk '{if (NF == 3) {print $2,$3} else {if ($3 == "stable") {print $2,$4} }}' |\
    tr -d ':' | sort -fu | column -dt | cat -n
 ```
 
@@ -377,72 +382,71 @@ This is what the output looks like:
   <summary>Click to expand!</summary>
 
 ```bash
-     1	aspell         0.60.8
-     2	bash           5.2.9
-     3	bat            0.22.1
-     4	cmake          3.25.0
-     5	colordiff      1.0.20
-     6	coreutils      9.1
-     7	csvtk          0.25.0
-     8	diffutils      3.8
-     9	docker         20.10.21
-    10	drawio         20.3.0
-    11	dust           0.8.3
-    12	emacs          28.2
-    13	exa            0.10.1
-    14	fd             8.5.3
-    15	file-formula   5.43
-    16	findutils      4.9.0
-    17	firefox        107.0
-    18	gawk           5.2.0
-    19	git            2.38.1
-    20	glib           2.74.0
-    21	gnu-sed        4.9
-    22	gnu-tar        1.34
-    23	gnuplot        5.4.5
-    24	gnutls         3.7.8
-    25	go             1.19.3
-    26	google-chrome  107.0.5304.110
-    27	grep           3.8
-    28	gtop           1.1.3
-    29	guile          3.0.8
-    30	harfbuzz       5.3.1
-    31	hexyl          0.10.0
-    32	htop           3.2.1
-    33	imagemagick    7.1.0-52
-    34	inetutils      2.4
-    35	jq             1.6
-    36	less           608
-    37	make           4.4
-    38	openssh        9.1p1
-    39	pandoc         2.19.2
-    40	pango          1.50.12
-    41	pipenv         2022.9.24
-    42	podman         4.3.1
-    43	poppler        22.08.0
-    44	postgresql@14  14.6
-    45	procs          0.13.3
-    46	python@3.10    3.10.8
-    47	python@3.8     3.8.15
-    48	qemu           7.1.0
-    49	qt@5           5.15.7
-    50	ripgrep        13.0.0
-    51	rsync          3.2.7
-    52	ruby           3.1.2
-    53	sd             0.7.6
-    54	shellcheck     0.8.0
-    55	socat          1.7.4.4
-    56	sqlite         3.39.4
-    57	terraform      1.3.5
-    58	tmux           3.3a
-    59	tokei          12.1.2
-    60	tree           2.0.4
-    61	ttyrec         1.0.8
-    62	util-linux     2.38.1
-    63	vim            9.0.0900
-    64	wget           1.21.3
-    65	zenith         0.13.1
-    66	zip            3.0
+        1	aspell         0.60.8
+        2	bash           5.2.12
+        3	bat            0.22.1
+        4	cmake          3.25.0
+        5	colordiff      1.0.20
+        6	coreutils      9.1
+        7	csvtk          0.25.0
+        8	diffutils      3.8
+        9	docker         20.10.21
+       10	dust           0.8.3
+       11	emacs          28.2
+       12	exa            0.10.1
+       13	fd             8.5.3
+       14	file-formula   5.43
+       15	findutils      4.9.0
+       16	gawk           5.2.1
+       17	geogebra       6.0.745.0
+       18	git            2.38.1
+       19	glib           2.74.0
+       20	gnu-sed        4.9
+       21	gnu-tar        1.34
+       22	gnuplot        5.4.5
+       23	gnutls         3.7.8
+       24	go             1.19.3
+       25	grep           3.8
+       26	gtop           1.1.3
+       27	guile          3.0.8
+       28	harfbuzz       5.3.1
+       29	hexyl          0.10.0
+       30	htop           3.2.1
+       31	imagemagick    7.1.0-52
+       32	inetutils      2.4
+       33	jq             1.6
+       34	less           608
+       35	make           4.4
+       36	musescore      3.6.2.548020600
+       37	openssh        9.1p1
+       38	pandoc         2.19.2
+       39	pango          1.50.12
+       40	pipenv         2022.9.24
+       41	podman         4.3.1
+       42	poppler        22.11.0
+       43	postgresql@14  14.6
+       44	procs          0.13.3
+       45	python@3.10    3.10.8
+       46	python@3.8     3.8.15
+       47	qemu           7.1.0
+       48	qt@5           5.15.7
+       49	ripgrep        13.0.0
+       50	rsync          3.2.7
+       51	ruby           3.1.2
+       52	sd             0.7.6
+       53	shellcheck     0.8.0
+       54	socat          1.7.4.4
+       55	sqlite         3.40.0
+       56	terraform      1.3.5
+       57	tmux           3.3a
+       58	tokei          12.1.2
+       59	tree           2.0.4
+       60	ttyrec         1.0.8
+       61	util-linux     2.38.1
+       62	vim            9.0.0950
+       63	wget           1.21.3
+       64	zenith         0.13.1
+       65	zip            3.0
 ```
 
 </details>
