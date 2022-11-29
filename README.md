@@ -473,6 +473,7 @@ Here is the script that sets up the links.
 #
 set -ex
 rm -f $HOME/bin/awk
+rm -f $HOME/bin/column
 rm -f $HOME/bin/date
 rm -f $HOME/bin/find
 rm -f $HOME/bin/grep
@@ -482,7 +483,6 @@ rm -f $HOME/bin/sed
 rm -f $HOME/bin/sort
 rm -f $HOME/bin/tar
 rm -f $HOME/bin/xargs
-rm -f $HOME/bin/column
 
 ln -s /usr/local/bin/gawk $HOME/bin/awk
 ln -s /usr/local/Cellar/util-linux/$(brew list --versions -q util-linux | awk '{print $2}')/bin/column $HOME/bin/column
@@ -511,6 +511,12 @@ brew doctor
 rm -f $HOME/bin/column
 ln -s /usr/local/Cellar/util-linux/$(brew list --versions -q util-linux | awk '{print $2}')/bin/column $HOME/bin/column
 ```
+
+The `xcode-select` command verifies that the xcode command line tools are installed.
+It is needed on rare occasions when MacOS is updated.
+
+The $HOME/bin/column link is always updated to guarantee that it is correct when the `util-linux`
+package is updated.
 
 # Basic zshrc
 Here is a very basic ~/.zshrc file that can be used to setup the new environment.
