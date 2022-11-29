@@ -87,7 +87,7 @@ You can search for packages here: https://formulae.brew.sh/formula/ or
 by using `brew search...` on the command line.
 
 Brew has one really annoying deficiency: you cannot search for
-packages that contain a specific file as mention in
+packages that contain a specific file as mentioned in
 [this](https://stackoverflow.com/questions/70600918/is-there-a-way-to-search-for-packages-that-contain-a-specific-file-using-brew)
 stack exchange issue.
 
