@@ -701,7 +701,13 @@ See [this](https://www.diagrams.net/doc/faq/custom-fonts-confluence-cloud) link 
 
 # Mathy Stuff
 
-I use LaTeXiT for creating equations and gnuplot for basic plotting. I also use geogebra for simple modeling (only simple because i don't know it that well) as well as grafana with postrgresql for browser based plotting. Note, however, that i tend to use both grafana and postgres in containers as described
+I use LaTeXiT for creating equations and gnuplot for basic plotting.
+
+> Breaking news! I recently switched from gnuplot to [matplotlib](https://matplotlib.org/) and am very happy with it!
+> It can be installed using _pip_ or _pipenv_.
+> See [this](https://gist.github.com/jlinoff/f3fd81748b0bcb0a3b033b921e8ee85a) gist for a simple example.
+
+I also use geogebra for simple modeling (only simple because i don't know it that well) as well as grafana with postrgresql for browser based plotting. Note, however, that i tend to use both grafana and postgres in containers as described
 [here](https://gist.github.com/jlinoff/6e2127ee8b9522da9bc20b20be980818).
 
 Here are the commands to install them.
