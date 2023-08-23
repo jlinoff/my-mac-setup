@@ -994,3 +994,14 @@ Here is an example usage.
 ```bash
 tree $HOME/icloud
 ```
+
+# Appendix G - Report bash statements (extend -x via PS4)
+This example shows how to trace bash script execution by setting PS4 to print out each bash statement.
+```bash
+# What you need to add to your bash script.
+PS4='$(printf "\033[1;34m+ %s %-20s\033[0m" $(date +"%Y-%m-%dT%H:%M:%S") "${LINENO}:${BASH_SOURCE[0]} => ")'
+set -x
+# Example statements
+date
+echo $BASH_VERSION
+```
