@@ -39,6 +39,7 @@
   * [Appendix D - Search a Huge Number of Files](#appendix-d---search-a-huge-number-of-files)
   * [Appendix E - Spell Check Markdown Files](#appendix-e---spell-check-markdown-files)
   * [Appendix F - Useful CLI tools](#appendix-f---useful-cli-tools)
+  * [Appendix G - Trace bash statements (extend -x via PS4)](#appendix-g---trace-bash-statements-extend--x-via-ps4)
 
 
 <!--te-->
@@ -995,7 +996,7 @@ Here is an example usage.
 tree $HOME/icloud
 ```
 
-# Appendix G - Report bash statements (extend -x via PS4)
+# Appendix G - Trace bash statements (extend -x via PS4)
 This example shows how to trace bash script execution by setting PS4 to print out each bash statement.
 ```bash
 # What you need to add to your bash script.
