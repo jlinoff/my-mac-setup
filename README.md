@@ -40,7 +40,7 @@
   * [Appendix E - Spell Check Markdown Files](#appendix-e---spell-check-markdown-files)
   * [Appendix F - Useful CLI tools](#appendix-f---useful-cli-tools)
   * [Appendix G - make $HOME/icloud link](#appendix-g---make-homeicloud-link)
-  * [Appendix H - Trace bash statements (extend -x via PS4)](#appendix-h---trace-bash-statements-extend--x-via-ps4)
+  * [Appendix H - Trace bash statements (extend -x via PS4)](#appendix-h---trace-bash-and-zsh-statements-extend--x-via-ps4)
 
 <!--te-->
 </details>
@@ -996,13 +996,18 @@ Here is an example usage.
 tree $HOME/icloud
 ```
 
-# Appendix H - Trace bash statements (extend -x via PS4)
+# Appendix H - Trace bash and zsh statements (extend -x via PS4)
 This example shows how to trace bash script execution by setting PS4 to print out each bash statement.
 ```bash
 # What you need to add to your bash script.
 PS4='$(printf "\033[1;34m+ %s %-20s\033[0m" $(date +"%Y-%m-%dT%H:%M:%S") "${LINENO}:${BASH_SOURCE[0]} => ")'
+# turn on the verbose trace
 set -x
 # Example statements
 date
 echo $BASH_VERSION
+# turn off the verbose trace
+{ set +x; } 2>/dev/null
+# Example statements that will not be traced
+echo "NO TRACE"
 ```
