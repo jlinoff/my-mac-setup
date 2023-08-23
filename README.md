@@ -39,6 +39,7 @@
   * [Appendix D - Search a Huge Number of Files](#appendix-d---search-a-huge-number-of-files)
   * [Appendix E - Spell Check Markdown Files](#appendix-e---spell-check-markdown-files)
   * [Appendix F - Useful CLI tools](#appendix-f---useful-cli-tools)
+  * [Appendix G - make $HOME/icloud link](#appendix-g---make-homeicloud-link)
   * [Appendix H - Trace bash statements (extend -x via PS4)](#appendix-h---trace-bash-statements-extend--x-via-ps4)
 
 <!--te-->
