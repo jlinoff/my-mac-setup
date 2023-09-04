@@ -546,6 +546,7 @@ Here are some browsers that i have found useful.
 
 | browser | installation |
 | ------- | ------------ |
+| brave | `brew install --cask brew` |
 | firefox | `brew install --cask firefox` |
 | ghost | `brew install --cask ghost-browser` |
 | google-chrome | `brew install --cask google-chrome` |
