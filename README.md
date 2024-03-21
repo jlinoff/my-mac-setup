@@ -509,6 +509,7 @@ xcode-select --install
 brew update
 brew upgrade
 brew cleanup
+brew autoremove
 brew doctor
 rm -f $HOME/bin/column
 ln -s /usr/local/Cellar/util-linux/$(brew list --versions -q util-linux | awk '{print $2}')/bin/column $HOME/bin/column
