@@ -118,7 +118,7 @@ PKGS=(
     csvtk
     diffutils
     dust
-    exa
+    eza
     fd
     file
     findutils
@@ -214,7 +214,7 @@ This is what the output looks like:
     11	"dust"           brew
     12	"emacs"          cask
     13	"emacs",         brew
-    14	"exa"            brew
+    14	"eza"            brew
     15	"fd"             brew
     16	"file-formula"   brew
     17	"findutils"      brew
@@ -303,7 +303,7 @@ This is what the output looks like:
     10	==>  drawio:         20.3.0           (auto_updates)                          
     11	==>  dust:           stable           0.8.3           (bottled),  HEAD        
     12	==>  emacs:          stable           28.2            (bottled),  HEAD        
-    13	==>  exa:            stable           0.10.1          (bottled),  HEAD        
+    13	==>  eza:            stable           0.18.9          (bottled),  HEAD        
     14	==>  fd:             stable           8.5.3           (bottled),  HEAD        
     15	==>  file-formula:   stable           5.43            (bottled),  HEAD        [keg-only]
     16	==>  findutils:      stable           4.9.0           (bottled)               
@@ -395,7 +395,7 @@ This is what the output looks like:
         9	docker         20.10.21
        10	dust           0.8.3
        11	emacs          28.2
-       12	exa            0.10.1
+       12	eza            0.18.9
        13	fd             8.5.3
        14	file-formula   5.43
        15	findutils      4.9.0
