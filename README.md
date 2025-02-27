@@ -76,12 +76,9 @@ package manager_ is what is important.
 
 ## Brew Installation
 Basically i just followed the standard installation instructions from
-the website: https://docs.brew.sh/Installation with a minor workaround for a
-permissions issue.
+the website: https://brew.sh.
 ```bash
-xcode-select --install
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-sudo chown -R "$USER":admin /usr/local/*
 brew update --force --quiet
 ```
 
