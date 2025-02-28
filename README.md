@@ -594,6 +594,8 @@ problem is fixed i will may switch to podman in the future for containers becaus
 better. See this [link](https://github.com/containers/podman/issues/8016) for information about progress
 towards fixing the `podman` volume mount problem.
 
+> The above statement is no longer true. Podman now mounts directories correctly.
+
 I really like where [colima](https://github.com/abiosoft/colima) is going as well and am keeping an eye on it.
 
 Neither podman or colima are a replacement for docker on mac yet because of their lack of support for volume mounts.
